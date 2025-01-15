@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランダムPayPayリンク生成</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #links {
+            margin-top: 20px;
+        }
+        .link {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>ランダムPayPayリンク生成</h1>
+    <button onclick="generateLinks()">リンクを生成</button>
+    <div id="links"></div>
+
+    <script>
+        function generateRandomString(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        function generateLinks() {
+            const linksContainer = document.getElementById('links');
+            linksContainer.innerHTML = ''; // 既存のリンクをクリア
+            for (let i = 0; i < 50; i++) {
+                const randomId = generateRandomString(10); // ランダムIDの生成
+                const payPayLink = `https://paypay.me/${randomId}`;
+                const linkElement = document.createElement('div');
+                linkElement.className = 'link';
+                linkElement.innerHTML = `<a href="${payPayLink}" target="_blank">${payPayLink}</a>`;
+                linksContainer.appendChild(linkElement);
+            }
+        }
+    </script>
+</body>
+</html>
