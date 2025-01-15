@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ランダムPayPayリンク生成</title>
+    <title>PayPayリンク生成</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            background-color: #4CAF50;
+            background-color: #0070c9;
             color: white;
             border: none;
             border-radius: 5px;
@@ -27,12 +27,13 @@
     </style>
 </head>
 <body>
-    <h1>ランダムPayPayリンク生成</h1>
+    <h1>PayPayリンク生成</h1>
     <button onclick="generateLinks()">リンクを生成</button>
     <div id="links"></div>
 
     <script>
-        function generateRandomString(length) {
+        // ランダムな16文字のIDを生成する関数
+        function generateRandomId(length) {
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
             let result = '';
             for (let i = 0; i < length; i++) {
@@ -41,12 +42,13 @@
             return result;
         }
 
+        // リンクを生成して表示する関数
         function generateLinks() {
             const linksContainer = document.getElementById('links');
             linksContainer.innerHTML = ''; // 既存のリンクをクリア
             for (let i = 0; i < 50; i++) {
-                const randomId = generateRandomString(10); // ランダムIDの生成
-                const payPayLink = `https://paypay.me/${randomId}`;
+                const randomId = generateRandomId(16); // ランダムな16文字のID
+                const payPayLink = `https://pay.paypay.ne.jp/${randomId}`;
                 const linkElement = document.createElement('div');
                 linkElement.className = 'link';
                 linkElement.innerHTML = `<a href="${payPayLink}" target="_blank">${payPayLink}</a>`;
