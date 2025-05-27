@@ -32,7 +32,6 @@
     <div id="links"></div>
 
     <script>
-        // ランダムな16文字のIDを生成する関数
         function generateRandomId(length) {
             const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
             let result = '';
@@ -42,12 +41,11 @@
             return result;
         }
 
-        // リンクを生成して表示する関数
         function generateLinks() {
             const linksContainer = document.getElementById('links');
-            linksContainer.innerHTML = ''; // 既存のリンクをクリア
+            linksContainer.innerHTML = '';
             for (let i = 0; i < 50; i++) {
-                const randomId = generateRandomId(16); // ランダムな16文字のID
+                const randomId = generateRandomId(16);
                 const payPayLink = `https://pay.paypay.ne.jp/${randomId}`;
                 const linkElement = document.createElement('div');
                 linkElement.className = 'link';
